@@ -5,7 +5,7 @@
 //  Created by Petrovich on 08.11.2021.
 //
 
-class MaxValueRule: Rule {
+open class MaxValueRule: Rule {
     
     var errorMessage: String?
     let max: Int

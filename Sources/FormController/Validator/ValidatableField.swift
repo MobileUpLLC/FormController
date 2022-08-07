@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - ValidatableFieldState
 
-enum ValidatableFieldState: Equatable {
+public enum ValidatableFieldState: Equatable {
     
     case success
     case error(String? = nil)
@@ -20,7 +20,7 @@ enum ValidatableFieldState: Equatable {
 
 // MARK: - ValidatableField
 
-protocol ValidatableField: AnyObject {
+open protocol ValidatableField: AnyObject {
     
     typealias ValueCallback = (String) -> Void
     

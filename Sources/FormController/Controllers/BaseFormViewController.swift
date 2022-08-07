@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - BaseFormViewController
 
-class BaseFormViewController: UIViewController {
+open class BaseFormViewController: UIViewController {
     
     // MARK: - Public properties
     

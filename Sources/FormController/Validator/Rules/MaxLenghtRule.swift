@@ -5,7 +5,7 @@
 //  Created by Petrovich on 08.11.2021.
 //
 
-class MaxLenghtRule: Rule {
+open class MaxLenghtRule: Rule {
     
     var errorMessage: String? { nil }
     let max: Int

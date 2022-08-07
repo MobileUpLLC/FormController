@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - RegexRule
 
-class RegexRule: Rule {
+open class RegexRule: Rule {
     
     // MARK: - Public propertries
     

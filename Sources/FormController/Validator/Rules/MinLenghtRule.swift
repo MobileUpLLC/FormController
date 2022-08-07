@@ -5,7 +5,7 @@
 //  Created by Petrovich on 08.11.2021.
 //
 
-class MinLenghtRule: Rule {
+open class MinLenghtRule: Rule {
     
     var errorMessage: String?
     let min: Int

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - ValidatableFieldResult
 
-struct ValidatableFieldResult {
+public struct ValidatableFieldResult {
     
     // MARK: - Public properties
     
@@ -19,7 +19,7 @@ struct ValidatableFieldResult {
 
 // MARK: - FormValidationResult
 
-struct FormValidationResult {
+public struct FormValidationResult {
     
     // MARK: - Public properties
 
@@ -30,7 +30,7 @@ struct FormValidationResult {
 
 // MARK: - FieldValidationResult
 
-struct FieldValidationResult {
+public struct FieldValidationResult {
     
     // MARK: - Public properties
 
@@ -40,7 +40,7 @@ struct FieldValidationResult {
 
 // MARK: - ValidatableItem
 
-struct ValidatableItem {
+public struct ValidatableItem {
     
     // MARK: - Public properties
     
@@ -60,7 +60,7 @@ struct ValidatableItem {
 
 // MARK: - FieldValidator
 
-class FieldValidator {
+public class FieldValidator {
     
     // MARK: - Private properties
     
