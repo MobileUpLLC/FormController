@@ -13,8 +13,8 @@ open class RegexRule: Rule {
     
     // MARK: - Public propertries
     
-    let regex: String
-    var errorMessage: String? { nil }
+    public let regex: String
+    open var errorMessage: String? { nil }
 
     // MARK: - Public methods
     
@@ -22,7 +22,7 @@ open class RegexRule: Rule {
         self.regex = regex
     }
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         return NSPredicate(format: "SELF MATCHES %@", self.regex).evaluate(with: value)
     }
 }

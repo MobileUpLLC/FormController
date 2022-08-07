@@ -20,7 +20,7 @@ public enum ValidatableFieldState: Equatable {
 
 // MARK: - ValidatableField
 
-open protocol ValidatableField: AnyObject {
+public protocol ValidatableField: AnyObject {
     
     typealias ValueCallback = (String) -> Void
     

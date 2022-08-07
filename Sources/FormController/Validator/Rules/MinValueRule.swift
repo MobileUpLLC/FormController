@@ -7,10 +7,10 @@
 
 open class MinValueRule: Rule {
     
-    var errorMessage: String?
-    let min: Int
+    open var errorMessage: String?
+    public let min: Int
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         if let intValue = Int(value) {
             return intValue >= min
         }

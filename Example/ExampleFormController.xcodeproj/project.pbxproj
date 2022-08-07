@@ -23,7 +23,7 @@
 		D31CF53C287440CA00F1E757 /* DemoValidatableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoValidatableViewModel.swift; sourceTree = "<group>"; };
 		D31CF53E287443FE00F1E757 /* DemoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFormViewController.swift; sourceTree = "<group>"; };
 		D31CF5412874441D00F1E757 /* DemoFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoFormViewController.xib; sourceTree = "<group>"; };
-		D3BEDCD92874292E004CA677 /* FormController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3BEDCD92874292E004CA677 /* ExampleFormController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleFormController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BEDCF528743050004CA677 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3BEDCF628743050004CA677 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3BEDCFA28743050004CA677 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		D3BEDCDA2874292E004CA677 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3BEDCD92874292E004CA677 /* FormController.app */,
+				D3BEDCD92874292E004CA677 /* ExampleFormController.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D3BEDCD82874292E004CA677 /* FormController */ = {
+		D3BEDCD82874292E004CA677 /* ExampleFormController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3BEDCED2874292F004CA677 /* Build configuration list for PBXNativeTarget "FormController" */;
+			buildConfigurationList = D3BEDCED2874292F004CA677 /* Build configuration list for PBXNativeTarget "ExampleFormController" */;
 			buildPhases = (
 				D3BEDCD52874292E004CA677 /* Sources */,
 				D3BEDCD62874292E004CA677 /* Frameworks */,
@@ -170,9 +170,9 @@
 			);
 			dependencies = (
 			);
-			name = FormController;
+			name = ExampleFormController;
 			productName = FormController;
-			productReference = D3BEDCD92874292E004CA677 /* FormController.app */;
+			productReference = D3BEDCD92874292E004CA677 /* ExampleFormController.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D3BEDCD42874292E004CA677 /* Build configuration list for PBXProject "FormController" */;
+			buildConfigurationList = D3BEDCD42874292E004CA677 /* Build configuration list for PBXProject "ExampleFormController" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -200,13 +200,12 @@
 			);
 			mainGroup = D3BEDCD02874292E004CA677;
 			packageReferences = (
-				7478BDCC289D6A6D007CB762 /* XCRemoteSwiftPackageReference "FormController" */,
 			);
 			productRefGroup = D3BEDCDA2874292E004CA677 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3BEDCD82874292E004CA677 /* FormController */,
+				D3BEDCD82874292E004CA677 /* ExampleFormController */,
 			);
 		};
 /* End PBXProject section */
@@ -413,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3BEDCD42874292E004CA677 /* Build configuration list for PBXProject "FormController" */ = {
+		D3BEDCD42874292E004CA677 /* Build configuration list for PBXProject "ExampleFormController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3BEDCEB2874292F004CA677 /* Debug */,
@@ -422,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3BEDCED2874292F004CA677 /* Build configuration list for PBXNativeTarget "FormController" */ = {
+		D3BEDCED2874292F004CA677 /* Build configuration list for PBXNativeTarget "ExampleFormController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3BEDCEE2874292F004CA677 /* Debug */,
@@ -432,17 +431,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7478BDCC289D6A6D007CB762 /* XCRemoteSwiftPackageReference "FormController" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MobileUpLLC/FormController";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = D3BEDCD12874292E004CA677 /* Project object */;
 }

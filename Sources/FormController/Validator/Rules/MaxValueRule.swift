@@ -7,10 +7,10 @@
 
 open class MaxValueRule: Rule {
     
-    var errorMessage: String?
-    let max: Int
+    open var errorMessage: String?
+    public let max: Int
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         if let intValue = Int(value) {
             return intValue <= max
         }

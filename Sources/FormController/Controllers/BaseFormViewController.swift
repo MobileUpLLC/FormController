@@ -13,10 +13,10 @@ open class BaseFormViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var aboveKeyboardViewBottomInset: CGFloat = 0
-    var aboveKeyboardView: UIView? { nil }
-    var animatedUpAboveContainer: Bool = true
-    var initialInputView: UIView? { nil }
+    open var aboveKeyboardViewBottomInset: CGFloat = 0
+    open var aboveKeyboardView: UIView? { nil }
+    open var animatedUpAboveContainer: Bool = true
+    open var initialInputView: UIView? { nil }
     
     // MARK: - Private properties
     
@@ -26,7 +26,7 @@ open class BaseFormViewController: UIViewController {
     
     // MARK: - Override methods
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         subscribeOnKeyboard()
@@ -37,7 +37,7 @@ open class BaseFormViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         unsubscribeOnKeyboard()
@@ -45,7 +45,7 @@ open class BaseFormViewController: UIViewController {
     
     // MARK: - Public methods
     
-    func register(field: ValidatableField, rules: [Rule]) {
+    public func register(field: ValidatableField, rules: [Rule]) {
         validator.register(field: field, rules: rules)
         
         field.onValueChange = { [weak self] _ in
@@ -57,39 +57,39 @@ open class BaseFormViewController: UIViewController {
         }
     }
     
-    func unregister(field: ValidatableField) {
+    public func unregister(field: ValidatableField) {
         validator.unregister(field: field)
     }
     
-    func unregisterAll() {
+    public func unregisterAll() {
         validator.unregisterObjects()
     }
     
-    func validate(field: ValidatableField, rules: [Rule]) -> FieldValidationResult {
+    public func validate(field: ValidatableField, rules: [Rule]) -> FieldValidationResult {
         return validator.validate(field: field, rules: rules)
     }
     
-    func validate(completion: (FormValidationResult) -> Void) {
+    public func validate(completion: (FormValidationResult) -> Void) {
         validator.validate(completion: completion)
     }
     
-    func fieldDidChangeValue(_ field: ValidatableField) { }
+    public func fieldDidChangeValue(_ field: ValidatableField) { }
     
     // MARK: - Public methods
     
-    func keyboardDidShow() {
+    open func keyboardDidShow() {
         animatedUpAboveContainer = true
         isKeyboardShown = true
     }
     
-    func keyboardWillShow() {}
-    func keyboardWillHide() {}
+    open func keyboardWillShow() {}
+    open func keyboardWillHide() {}
     
-    func keyboardDidHide() {
+    open func keyboardDidHide() {
         isKeyboardShown = false
     }
     
-    func subscribeOnKeyboard() {
+    open func subscribeOnKeyboard() {
         
         NotificationCenter.default.addObserver(
             self,
@@ -120,7 +120,7 @@ open class BaseFormViewController: UIViewController {
         )
     }
     
-    func unsubscribeOnKeyboard() {
+    open func unsubscribeOnKeyboard() {
         NotificationCenter.default.removeObserver(self)
     }
     

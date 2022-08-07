@@ -7,10 +7,10 @@
 
 open class MaxLenghtRule: Rule {
     
-    var errorMessage: String? { nil }
-    let max: Int
+    open var errorMessage: String? { nil }
+    public let max: Int
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         return value.count <= max
     }
     
