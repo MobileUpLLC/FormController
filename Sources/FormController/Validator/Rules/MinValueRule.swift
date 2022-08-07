@@ -17,7 +17,7 @@ open class MinValueRule: Rule {
         return false
     }
     
-    init(min: Int) {
+    public init(min: Int) {
         self.min = min
     }
 }

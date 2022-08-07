@@ -14,7 +14,7 @@ open class MinLenghtRule: Rule {
         return value.count >= min
     }
     
-    init(min: Int) {
+    public init(min: Int) {
         self.min = min
     }
 }

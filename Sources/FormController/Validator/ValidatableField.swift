@@ -15,7 +15,7 @@ public enum ValidatableFieldState: Equatable {
     case error(String? = nil)
     case `default`
     
-    var isDefault: Bool { self == ValidatableFieldState.default }
+    public var isDefault: Bool { self == ValidatableFieldState.default }
 }
 
 // MARK: - ValidatableField

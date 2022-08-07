@@ -18,7 +18,7 @@ open class RegexRule: Rule {
 
     // MARK: - Public methods
     
-    init(regex: String) {
+    public init(regex: String) {
         self.regex = regex
     }
     

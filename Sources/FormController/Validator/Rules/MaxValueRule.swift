@@ -17,7 +17,7 @@ open class MaxValueRule: Rule {
         return false
     }
     
-    init(max: Int) {
+    public init(max: Int) {
         self.max = max
     }
 }

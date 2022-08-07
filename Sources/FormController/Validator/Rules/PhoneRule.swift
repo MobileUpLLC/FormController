@@ -9,7 +9,7 @@ open class PhoneRule: RegexRule {
     
     public static let phoneRegex = "(\\+[0-9]+[\\-\\s]?)?(\\(?[0-9]+\\)?[\\-\\s]?)?([0-9][0-9\\-\\s]+[0-9])*"
     
-    convenience init() {
+    public convenience init() {
         self.init(regex: PhoneRule.phoneRegex)
     }
 }

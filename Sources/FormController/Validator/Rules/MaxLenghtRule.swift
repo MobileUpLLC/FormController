@@ -14,7 +14,7 @@ open class MaxLenghtRule: Rule {
         return value.count <= max
     }
     
-    init(max: Int) {
+    public init(max: Int) {
         self.max = max
     }
 }
