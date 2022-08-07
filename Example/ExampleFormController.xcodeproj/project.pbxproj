@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		742934AF289D2BBD0002191E /* DemoValidatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742934AD289D2BBD0002191E /* DemoValidatableView.swift */; };
 		742934B0289D2BBD0002191E /* DemoValidatableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742934AE289D2BBD0002191E /* DemoValidatableView.xib */; };
-		74F8EBB6289FDAD7003C20CC /* FormController in Frameworks */ = {isa = PBXBuildFile; productRef = 74F8EBB5289FDAD7003C20CC /* FormController */; };
 		74F8EBB8289FDB00003C20CC /* DemoRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8EBB7289FDB00003C20CC /* DemoRule.swift */; };
+		74F8EBBB289FDC16003C20CC /* FormController in Frameworks */ = {isa = PBXBuildFile; productRef = 74F8EBBA289FDC16003C20CC /* FormController */; };
 		D31CF53D287440CA00F1E757 /* DemoValidatableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CF53C287440CA00F1E757 /* DemoValidatableViewModel.swift */; };
 		D31CF53F287443FE00F1E757 /* DemoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CF53E287443FE00F1E757 /* DemoFormViewController.swift */; };
 		D31CF5472874554400F1E757 /* DemoFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31CF5412874441D00F1E757 /* DemoFormViewController.xib */; };
@@ -39,22 +39,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74F8EBB6289FDAD7003C20CC /* FormController in Frameworks */,
+				74F8EBBB289FDC16003C20CC /* FormController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		742934AC289D19C60002191E /* Example */ = {
+		74F8EBBC289FDD26003C20CC /* DemoRules */ = {
 			isa = PBXGroup;
 			children = (
-				D31CF536287434D500F1E757 /* DemoViews */,
-				D31CF53B287440A400F1E757 /* DemoViewModels */,
-				D31CF5402874440400F1E757 /* DemoFormViewController */,
-				D3E6C1E02874CEF300D42B5F /* DemoInteractors */,
+				74F8EBB7289FDB00003C20CC /* DemoRule.swift */,
 			);
-			path = Example;
+			path = DemoRules;
 			sourceTree = "<group>";
 		};
 		D31CF536287434D500F1E757 /* DemoViews */ = {
@@ -62,7 +59,6 @@
 			children = (
 				742934AD289D2BBD0002191E /* DemoValidatableView.swift */,
 				742934AE289D2BBD0002191E /* DemoValidatableView.xib */,
-				74F8EBB7289FDB00003C20CC /* DemoRule.swift */,
 			);
 			path = DemoViews;
 			sourceTree = "<group>";
@@ -94,7 +90,6 @@
 		D3BEDCD02874292E004CA677 = {
 			isa = PBXGroup;
 			children = (
-				742934AC289D19C60002191E /* Example */,
 				D3BEDCF228743050004CA677 /* Source */,
 				D3BEDCDA2874292E004CA677 /* Products */,
 				D31CF5422874543200F1E757 /* Frameworks */,
@@ -112,6 +107,8 @@
 		D3BEDCF228743050004CA677 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D3E6C1E02874CEF300D42B5F /* DemoInteractors */,
+				74F8EBBC289FDD26003C20CC /* DemoRules */,
 				D3BEDCF328743050004CA677 /* UI */,
 				D3BEDCF928743050004CA677 /* Config */,
 				D3BEDCFB28743050004CA677 /* Resources */,
@@ -122,6 +119,9 @@
 		D3BEDCF328743050004CA677 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D31CF536287434D500F1E757 /* DemoViews */,
+				D31CF53B287440A400F1E757 /* DemoViewModels */,
+				D31CF5402874440400F1E757 /* DemoFormViewController */,
 				D3BEDCF428743050004CA677 /* Application */,
 			);
 			path = UI;
@@ -177,7 +177,7 @@
 			);
 			name = ExampleFormController;
 			packageProductDependencies = (
-				74F8EBB5289FDAD7003C20CC /* FormController */,
+				74F8EBBA289FDC16003C20CC /* FormController */,
 			);
 			productName = FormController;
 			productReference = D3BEDCD92874292E004CA677 /* ExampleFormController.app */;
@@ -208,7 +208,7 @@
 			);
 			mainGroup = D3BEDCD02874292E004CA677;
 			packageReferences = (
-				74F8EBB4289FDAD7003C20CC /* XCRemoteSwiftPackageReference "FormController" */,
+				74F8EBB9289FDC16003C20CC /* XCRemoteSwiftPackageReference "FormController" */,
 			);
 			productRefGroup = D3BEDCDA2874292E004CA677 /* Products */;
 			projectDirPath = "";
@@ -443,7 +443,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		74F8EBB4289FDAD7003C20CC /* XCRemoteSwiftPackageReference "FormController" */ = {
+		74F8EBB9289FDC16003C20CC /* XCRemoteSwiftPackageReference "FormController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MobileUpLLC/FormController";
 			requirement = {
@@ -454,9 +454,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		74F8EBB5289FDAD7003C20CC /* FormController */ = {
+		74F8EBBA289FDC16003C20CC /* FormController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 74F8EBB4289FDAD7003C20CC /* XCRemoteSwiftPackageReference "FormController" */;
+			package = 74F8EBB9289FDC16003C20CC /* XCRemoteSwiftPackageReference "FormController" */;
 			productName = FormController;
 		};
 /* End XCSwiftPackageProductDependency section */
