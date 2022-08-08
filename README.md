@@ -7,6 +7,7 @@
 [![githubIcon-4](https://user-images.githubusercontent.com/80983073/183376168-2e38a743-39ed-461d-bca1-230866f5608c.png)](https://github.com/MobileUpLLC/FormController/blob/main/LICENSE)
 
 Easy-to-use library with all the necessary logic to control the screen with custom fields that support data entry and validation.
+
 ![image](https://user-images.githubusercontent.com/80983073/183396205-a0be7fbc-d5db-4d24-b8b1-ae161434a640.png)
 ![image](https://user-images.githubusercontent.com/80983073/183376960-c53fa417-2da1-4932-89f3-fe3f8701daa3.png)
 
@@ -30,6 +31,7 @@ View should implement ```ValidatableField``` protocol, that requires to override
 ```onValueChange``` – callback, which will be triggered on the change of the field value
 
 In example validatable view is declared as ```DemoValidatableView: UIView, ValidatableField``` and overrides variables this way:
+
 ```
 var value: String { textField.text ?? Constants.textFieldDefauldString }
 var validatableState: ValidatableFieldState = .default { didSet { updateValidatableState() } }
@@ -72,6 +74,7 @@ The rule for the first field will be defined later using a ready-made class ```M
 #### 2.2. Regex
 The package contains a class ```RegexRule``` that implements protocol ```Rule```. This class aimed to work with regular expressions, which needed to check that the string is really a phone number. In the initializer of this class should passed one parameter - the regular expression. Example of the implementation: 
 
+
 ```
 class PhoneRule: RegexRule {
     
@@ -85,6 +88,7 @@ class PhoneRule: RegexRule {
 
 #### 2.3. Custom Regex Rules
 The rules for the third field can be defined using two classes ```MaxLenghtRule``` and a class that inherits from ```RegexRule```. Example regex rule implementation:
+
 
  ```
 final class DemoRule: RegexRule {
@@ -103,7 +107,7 @@ final class DemoRule: RegexRule {
 }
  ```
  
- ### 3. Controller's logic and UI
+### 3. Controller's logic and UI
 
 There are few implementation features. 
 - First: All fields should be in UIScrollView to keep an ability for lift up the keyboard and scroll to the desired field. 
@@ -112,6 +116,7 @@ There are few implementation features.
  
 #### 3.1 Setup Keyboard
 Override ```aboveKeyboardView``` variable . This variable is responsible for View, which will be raised with keyboard up. 
+
 
 ```
 override var aboveKeyboardView: UIView? { scrollView }
@@ -160,6 +165,7 @@ Validator has a function ```validator.validate(completion: completion)``` that g
 In case of using ViewModels to configure inpit-fields, call ```setupInitialData()``` to setup views.
 
 ``` 
+
 private func setupInitialData() {
     let models = interactor.getInitialDate()
         
