@@ -42,6 +42,11 @@ public struct FieldValidationResult {
 
 public struct ValidatableItem {
     
+    private enum Constants {
+        
+        static let empty = ""
+    }
+    
     // MARK: - Public properties
     
     public weak var field: ValidatableField?
@@ -50,7 +55,7 @@ public struct ValidatableItem {
     // MARK: - Public methods
     
     public func validate() -> FieldValidationResult {
-        if let firstFailedRule = rules.first(where: { $0.validate(value: field?.value ?? "") == false }) {
+        if let firstFailedRule = rules.first(where: { $0.validate(value: field?.value ?? Constants.empty) == false }) {
             return FieldValidationResult(isSuccess: false, firstFailedRule: firstFailedRule)
         } else {
             return FieldValidationResult(isSuccess: true, firstFailedRule: nil)

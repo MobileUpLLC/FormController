@@ -10,10 +10,15 @@ import UIKit
 // MARK: - BaseFormViewController
 
 open class BaseFormViewController: UIViewController {
+
+    private enum Constants {
+        
+        static let curveValue = 16
+    }
     
     // MARK: - Public properties
     
-    open var aboveKeyboardViewBottomInset: CGFloat = 0
+    open var aboveKeyboardViewBottomInset: CGFloat = .zero
     open var aboveKeyboardView: UIView? { nil }
     open var animatedUpAboveContainer: Bool = true
     open var initialInputView: UIView? { nil }
@@ -143,7 +148,7 @@ open class BaseFormViewController: UIViewController {
         else { return }
         
         let endHeight = endFrame.height
-        let animationCurve = UIView.AnimationOptions(rawValue: UInt(curveValue << 16))
+        let animationCurve = UIView.AnimationOptions(rawValue: UInt(curveValue << Constants.curveValue))
         let options: UIView.AnimationOptions = [.beginFromCurrentState, animationCurve]
         
         switch notification.name {
@@ -182,7 +187,7 @@ open class BaseFormViewController: UIViewController {
         
         if animatedUpAboveContainer {
             
-            UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+            UIView.animate(withDuration: duration, delay: .zero, options: options, animations: {
                 
                 self.view.layoutIfNeeded()
             })
