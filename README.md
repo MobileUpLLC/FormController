@@ -23,19 +23,20 @@ Easy-to-use library with all the necessary logic to control the screen with cust
 
 ### 1. View fields for validation
 
-At first let's face with the ```ValidatableField``` protocol, that requires us to prescribe only three variables: 
-```value``` – the value we will validate
-```validatableState``` – the current state of this field (successful, error, default)
-```onValueChange``` – a callback, which will be triggered on the change of the field value
+#### 1.1. Create View
+View should implement ```ValidatableField``` protocol, that requires to override three variables: 
+```value``` – validated value
+```validatableState``` – the current state of field (successful, error, default)
+```onValueChange``` – callback, which will be triggered on the change of the field value
 
-Now name our View ```DemoValidatableView: UIView, ValidatableField``` and override these three variables:
+In example validatable view is declared as ```DemoValidatableView: UIView, ValidatableField``` and overrides variables this way:
 ```
 var value: String { textField.text ?? Constants.textFieldDefauldString }
 var validatableState: ValidatableFieldState = .default { didSet { updateValidatableState() } }
 var onValueChange: ValueCallback?
 ```
 
-When field is validation, ```validatableState``` will get its state. Depending on this state, the UI should also be changed. As you can see from the code above, we did this with  ```didSet``` and the ```updateValidatableState()``` function. 
+When field validates, ```validatableState``` will get its state. Depending on this state, the UI should also be changed. We did this with  ```didSet``` and the ```updateValidatableState()``` function. 
 
 ```
 private func updateValidatableState() {
@@ -53,25 +54,23 @@ private func updateValidatableState() {
 }
 ```
 
-Now we just need to collapse the elements and adjust their position relative to each other. In the demo project this is done with Xib. You can see files DemoValidatableView.swift and DemoValidatableView.xib. 
-
 ![image](https://user-images.githubusercontent.com/80983073/183380442-cf317b6e-c510-46d8-bf68-96e2ad88cd1e.png)
 
 
 ### 2.  Rules
 
-Let's follow these rules as an example:
+For example will be followed those rules:
 - The first field must have a string length greater than 5 characters. 
 - The second field will have a phone number in the string. 
 - The third field will have two rules: the string length must be less than 5 characters, and the characters themselves must only be the letters 'a'.
 
-Let's take a look at the ```Rule ``` protocol. It's not much more complicated than the previous protocol. It only requires us to write a validation function ```validate ``` and a property ```errorMessage ``` – a description of why the field failed validation by this rule. 
+To create rule need's to implement ```Rule ``` protocol. ```Rule ``` requires to write a validation function ```validate ``` and a property ```errorMessage ``` – a description of why the field failed validation by this rule. 
 
 #### 2.1. Length-rule 
-The rule for the first field can be defined later using a ready-made class ```MinLenghtRule```.
+The rule for the first field will be defined later using a ready-made class ```MinLenghtRule```.
 
 #### 2.2. Regex
-This one needs a little comment. The package contains a class ```RegexRule```. It supports the protocol ```Rule```. As clear from the name - aimed to work with regular expressions, which we need to check that the string is really a phone number. In the initializer of this class we should pass only one parameter - the regular expression. Let's look at the implementation: 
+The package contains a class ```RegexRule``` that implements protocol ```Rule```. This class aimed to work with regular expressions, which needed to check that the string is really a phone number. In the initializer of this class should passed one parameter - the regular expression. Example of the implementation: 
 
 ```
 class PhoneRule: RegexRule {
@@ -85,7 +84,7 @@ class PhoneRule: RegexRule {
 ```
 
 #### 2.3. Custom Regex Rules
-The rules for the third field can be defined using two classes ```MaxLenghtRule``` and a class that inherits from ```RegexRule```. Our regex rule implementation:
+The rules for the third field can be defined using two classes ```MaxLenghtRule``` and a class that inherits from ```RegexRule```. Example regex rule implementation:
 
  ```
 final class DemoRule: RegexRule {
@@ -104,8 +103,6 @@ final class DemoRule: RegexRule {
 }
  ```
  
- Finaly we got the rules and can go to the next step – setting up controller. 
- 
  ### 3. Controller's logic and UI
 
 There are few implementation features. 
@@ -114,14 +111,14 @@ There are few implementation features.
 - And third: Controller should have access to the scrollView, the button and the fields in some way.
  
 #### 3.1 Setup Keyboard
-Let's rewrite the variable ```aboveKeyboardView```. This variable is responsible for View, which will be raised with keyboard up. 
+Override ```aboveKeyboardView``` variable . This variable is responsible for View, which will be raised with keyboard up. 
 
 ```
 override var aboveKeyboardView: UIView? { scrollView }
  ```
  
 #### 3.2 Place necessary functions
-Nex step is to rewrite ```viewDidLoad()```. Perform a number of important but simple actions in it. Let's talk about the most important ones.
+Override ```viewDidLoad()```. Include in this function fields-registation and view's-initialization
 
  ```
 override func viewDidLoad() {
@@ -135,9 +132,9 @@ override func viewDidLoad() {
  ```
  
 #### 3.3 Setup Validator
-First step is to create validator object  ```validator = FieldValidator()```.
+1. Create validator object  ```validator = FieldValidator()```.
 
-Second step is to register field's for validating. As you can see above, we call ```registerFields``` function in viewDidLoad, here is an example of its implementation:
+2. Then register field's for validating. 
 
 ```
 private func registerFields() {
@@ -154,12 +151,13 @@ private func registerFields() {
 }
 ```
 
-As we can see, here we explicitly relate the field to the rule by which it should be checked. 
+Here fields relates to the rule by which it should be checked. 
 
-And the third step is to start validation. Validator has a function ```validator.validate(completion: completion)``` that goes through all the fields and validates them. To start the validation only thing that we need it's to call this function. In our example we want to validate fields after user touches up inside button, so we place validate functions inside IBAction.
+3. Start validation. 
+Validator has a function ```validator.validate(completion: completion)``` that goes through all the fields and validates them. To start the validation call this function. In our example we want to validate fields after user touches up inside button, so we place validate functions inside IBAction.
 
 #### 3.4 Optional settings
-In case we use ViewModels to configure inpit-fields, we need to call ```setupInitialData()``` to setup our views.
+In case of using ViewModels to configure inpit-fields, call ```setupInitialData()``` to setup views.
 
 ``` 
 private func setupInitialData() {
@@ -176,7 +174,7 @@ private func setupInitialData() {
 - Swift 5.0 +
 - iOS 12.0 +
 
-## Istallation
+## Installation
 
 FormController doesn't contain any external dependencies.
 
@@ -186,7 +184,17 @@ Will be soon
 
 ### Manual
 
-Download and drag files from Source folder into your Xcode project, use swift package manager, or install via pod
+Download and drag files from Source folder into your Xcode project.
+
+### Swift Package Manager Install
+
+Swift Package Manager 
+
+```
+dependencies: [
+    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "0.0.1"))
+]
+```
 
 ## License
 
