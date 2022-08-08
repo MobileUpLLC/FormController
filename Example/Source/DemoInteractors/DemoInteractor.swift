@@ -7,7 +7,7 @@
 
 final class DemoInteractor {
     
-    func getInitialDate() -> [DemoValidatableViewModel] {
+    func getInitialData() -> [DemoValidatableViewModel] {
         return getDemoViewModels()
     }
     

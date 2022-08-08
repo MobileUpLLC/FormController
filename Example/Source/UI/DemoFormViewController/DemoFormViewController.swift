@@ -80,7 +80,7 @@ final class DemoFormViewController: BaseFormViewController {
     }
     
     private func setupInitialData() {
-        let models = interactor.getInitialDate()
+        let models = interactor.getInitialData()
         
         validatableFieldOne.setup(with: models[Constants.validatableFieldOneIndex])
         validatableFieldTwo.setup(with: models[Constants.validatableFieldTwoIndex])
