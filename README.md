@@ -1,9 +1,10 @@
 # FormController!
 
-[![githubIcon](https://user-images.githubusercontent.com/80983073/183376145-9738e9ca-1fc8-413a-9d01-75871731476b.png)](https://github.com/MobileUpLLC/FormController/new/main)
+[![githubIcon-build](https://user-images.githubusercontent.com/80983073/183608901-b58a80a9-0281-4860-b1fc-a46a70f90101.png)](https://github.com/MobileUpLLC/FormController/new/main)
 [![githubIcon-1](https://user-images.githubusercontent.com/80983073/183376152-fcdff7f9-8971-4250-90df-622f792c9ef9.png)](https://developer.apple.com/documentation/xcode-release-notes/swift-5-release-notes-for-xcode-10_2)
 [![githubIcon-2](https://user-images.githubusercontent.com/80983073/183376159-db6fa792-44b5-4639-aa4c-d8c72a7ec28e.png)](https://developer.apple.com)
 [![githubIcon-3](https://user-images.githubusercontent.com/80983073/183376162-1e432ab7-fe11-4c66-95a6-38c2687401d7.png)](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
+![githubIcon-2](https://user-images.githubusercontent.com/80983073/183608595-b9a19341-7914-4284-9f83-b0b84c9cc3d6.png)
 [![githubIcon-4](https://user-images.githubusercontent.com/80983073/183376168-2e38a743-39ed-461d-bca1-230866f5608c.png)](https://github.com/MobileUpLLC/FormController/blob/main/LICENSE)
 
 Easy-to-use library with all the necessary tools to control the screen with custom fields that support data entry and validation.
@@ -181,7 +182,14 @@ FormController doesn't contain any external dependencies.
 
 ### CocoaPods
 
-Will be added soon
+1. Make ```pod init``` 
+2. Add the following to Podfile 
+
+```
+pod 'FormController', :git => 'https://github.com/MobileUpLLC/FormController', :tag => '1.0.0'
+```
+
+3. Make ```pod install```
 
 ### Manual
 
@@ -193,7 +201,7 @@ Swift Package Manager
 
 ```
 dependencies: [
-    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
