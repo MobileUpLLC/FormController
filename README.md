@@ -1,34 +1,46 @@
-# FormController
-## Create and Validate custom forms
+# FormController!
 
-BaseFormViewController - это контроллер, в который заложена вся необходимая логика для управления экраном с полями, в которые пользователь должен вводить данные и которые необходимо валидировать.
+[![githubIcon](https://user-images.githubusercontent.com/80983073/183376145-9738e9ca-1fc8-413a-9d01-75871731476b.png)](https://github.com/MobileUpLLC/FormController/new/main)
+[![githubIcon-1](https://user-images.githubusercontent.com/80983073/183376152-fcdff7f9-8971-4250-90df-622f792c9ef9.png)](https://developer.apple.com/documentation/xcode-release-notes/swift-5-release-notes-for-xcode-10_2)
+[![githubIcon-2](https://user-images.githubusercontent.com/80983073/183376159-db6fa792-44b5-4639-aa4c-d8c72a7ec28e.png)](https://developer.apple.com)
+[![githubIcon-3](https://user-images.githubusercontent.com/80983073/183376162-1e432ab7-fe11-4c66-95a6-38c2687401d7.png)](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
+[![githubIcon-4](https://user-images.githubusercontent.com/80983073/183376168-2e38a743-39ed-461d-bca1-230866f5608c.png)](https://github.com/MobileUpLLC/FormController/blob/main/LICENSE)
 
-# Использование
+Easy-to-use library with all the necessary tools to control the screen with custom fields that support data entry and validation.
 
-Для того, чтобы всё начало работать, требуется сделать несколько простых действий:
-- создаём View полей для валидации, поддерживая протокол ```ValidatableField```
-- создаём необходимые правила, по которым будет происходить валидация, поддерживая протокол Rule
-- создаём свой собственный ```ViewController```, наследуя его от ```BaseFormViewController```, верстаем его UI и настраиваем логику его поведения небольшим количеством методов
+![image](https://user-images.githubusercontent.com/80983073/183396205-a0be7fbc-d5db-4d24-b8b1-ae161434a640.png)
+![image](https://user-images.githubusercontent.com/80983073/183376960-c53fa417-2da1-4932-89f3-fe3f8701daa3.png)
 
-# Пример использования
-Предположим, что мы имеем необходимость создать экран с тремя одинаковыми по виду валидируемыми полями, у каждого из которых будет свое правило (или правила). Снизу экрана расположим кнопку, по тапу на которую будет запускаться проверка. Пойдем по списку действий, описанному выше.
+## Features
 
-## 1.  View полей для валидации
-Итак, что должно быть у View поля? На самом деле, не так много. Протокол ```ValidatableField``` обязывает нас прописать всего три переменные: 
-```value``` - значение, которое мы будем валидировать
-```validatableState``` - текущее состояние этого поля (успешно, ошибка, дефолт)
-```onValueChange``` - коллбек, который будет тригериться на изменение значения поля
+- Manage screen with number of input fields with custom UI you need
+- Use optional and required input fields
+- Field validation with success, error and default status
+- Taking value for validation, state for changing field appearance and a callback on value change
+- Open ValidationRule Protocol for creating custom Rules
+- Keyboard up-down tracking
 
-Назовем нашу View ```DemoValidatableView: UIView, ValidatableField```. Пропишем эти три переменные:
-```
+## Usage
+
+### 1. View fields for validation
+
+#### 1.1. Create View
+View should implement ```ValidatableField``` protocol, that requires to override three variables: 
+```value``` – validated value
+```validatableState``` – the current state of the field (successful, error, default)
+```onValueChange``` – callback, which will be triggered on the change of the field value
+
+In example validatable view is declared as ```DemoValidatableView: UIView, ValidatableField``` and overrides variables this way:
+
+```swift
 var value: String { textField.text ?? Constants.textFieldDefauldString }
 var validatableState: ValidatableFieldState = .default { didSet { updateValidatableState() } }
 var onValueChange: ValueCallback?
 ```
 
-При валидации поля в ```validatableState``` будет попадать его состояние. В зависимости от этого состояния нужно изменять и UI. Как видно из кода выше, мы сделали это с помощью ```didSet``` и функции ```updateValidatableState()```. 
+When field passes validation, ```validatableState``` will get its state. Depending on this state, the UI should also be changed. We did this with  ```didSet``` and the ```updateValidatableState()``` function. 
 
-```
+```swift
 private func updateValidatableState() {
     switch validatableState {
     case .error(let errorDescription):
@@ -44,22 +56,26 @@ private func updateValidatableState() {
 }
 ```
 
-Осталось сверстать элементы и настроить их расположение друг относительно друга. В демонстрационном проекте это сделано с помощью Xib’а. Смотри файлы DemoValidatableView.swift и DemoValidatableView.xib. 
+![image](https://user-images.githubusercontent.com/80983073/183380442-cf317b6e-c510-46d8-bf68-96e2ad88cd1e.png)
 
-![image](https://user-images.githubusercontent.com/80983073/183074944-37d6a5fe-b3e0-46e8-9ad4-7af4cbd7df88.png)
 
-## 2.  Правила
-Пусть правила будут такими. У первого поля длина строки должна быть больше, чем 5 символов. У второго поля в строке будет телефонный номер. У третьего поля будет сразу два правила: длина строки меньше 5 символов, а сами символы должны быть только буквами ‘a’.
+### 2.  Rules
 
-Посмотрим на протокол ```Rule```. С ним всё не сильно сложнее, чем с предыдущим протоколом. Он обязывает нас прописать только функцию валидирования ```validate``` и проперти ```errorMessage``` – описание того, почему поле не прошло валидацию по этому правилу. 
+The example will implement the following rules:
+- The first field must have a string length greater than 5 characters. 
+- The second field must have a phone number in the string. 
+- The third field will have two rules: the string length must be less than 5 characters, and the characters themselves must only be the letters 'a'.
 
-### 2.1.
-Правило для первого поля можно будет впоследствии задать с помощью готового класса ```MinLenghtRule```.
+To create a rule, implement ```Rule ``` protocol. ```Rule ``` requires to write a validation function ```validate ``` and a property ```errorMessage ``` – describing a reason in case of failure. 
 
-### 2.2.
-Тут нужен небольшой комментарий. В пакете предусмотрен класс ```RegexRule```. Он поддерживает протокол ```Rule```. Как понятно из названия - направлен на работу с регулярными выражениями, что нам и понадобится для проверки на то, что введенная строка - действительно номер телефона. В инициализатор этого класса нужно передать только один параметр - регулярное выражение. Посмотрим на реализацию: 
+#### 2.1. Length Rule 
+The rule for the first field will be defined later using a ready-made class ```MinLenghtRule```.
 
-```
+#### 2.2. Regex
+The package contains a class ```RegexRule``` that implements protocol ```Rule```. This class is aimed to work with regular expressions, that are  needed to check that the string conforms to the defined expression. The RegEx should be passed as the initialization parameter. Example of the implementation:
+
+
+```swift
 class PhoneRule: RegexRule {
     
     static let phoneRegex = "(\\+[0-9]+[\\-\\s]?)?(\\(?[0-9]+\\)?[\\-\\s]?)?([0-9][0-9\\-\\s]+[0-9])*"
@@ -68,12 +84,13 @@ class PhoneRule: RegexRule {
         self.init(regex: PhoneRule.phoneRegex)
     }
 }
- ```
- 
-### 2.3.
-Правила для третьего поля можно будет задать с помощью двух классов ```MaxLenghtRule``` и класса, который унаследован от ```RegexRule```. Посмотрим на реализацию последнего:
+```
 
- ```
+#### 2.3. Custom Rules
+The rules for the third field can be defined using two classes ```MaxLenghtRule``` and a class that inherits from ```RegexRule```. Example regex rule implementation:
+
+
+ ```swift
 final class DemoRule: RegexRule {
     
     private enum Constants {
@@ -90,21 +107,25 @@ final class DemoRule: RegexRule {
 }
  ```
  
-Отлично! Правила готовы и мы можем начать реализовывать самое главное - контроллер. 
- 
-## 3.  Контроллер. Его логика и UI
+### 3. Controller's logic and UI
 
-Есть особенности реализации, о которых стоит сказать. Первое. Все поля должны находиться в UIScrollView, чтобы при нехватке места на экране при поднятии клавиатуры пользователь имел возможность проскроллить до нужного поля. Второе. Кнопка должна быть вне UIScrollVIew и прибита констрейнтом к низу UIScrollView. И последнее. Важно, чтобы у контроллера каким-либо образом был доступ к скрол вью, кнопке и полям. Этот момент станет очевиден в ходе дальнейших рассуждений.
+There are few implementation features. 
+- All fields should be in UIScrollView to keep an ability to lift up the keyboard and scroll to the desired field. 
+- Confirmation Button should be outside UIScrollVIew and have a constraint set to the bottom of UIScrollView. 
+- Controller should have access to the scrollView, the button and the fields in some way.
  
-Перезапишем переменную ```aboveKeyboardView```. Эта переменная отвечает за View, которое будет подниматься вместе с поднятием клавиатуры. 
+#### 3.1 Setup Keyboard
+Override ```aboveKeyboardView``` variable . This variable is responsible for View, which will be raised with keyboard up. 
 
-```
+
+```swift
 override var aboveKeyboardView: UIView? { scrollView }
  ```
  
-Перезапишем ```viewDidLoad```. Выполним в нем ряд важных, но простых действий. Оговорим только самые важные из них
+#### 3.2 Place necessary functions
+Override ```viewDidLoad()```. Include in this function field registation and views initialization
 
- ```
+ ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -115,11 +136,12 @@ override func viewDidLoad() {
 }
  ```
  
-У ```BaseFormViewController``` есть валидатор ```validator = FieldValidator()```. Что минимально необходимо о нем знать? Это то, что у него есть функция ```validator.validate(completion: completion)```, которая проходится по всем полям и проверяет их. Трогать валидатор напрямую не надо – у ```BaseFormViewController``` есть функция ```validate(completion: (FormValidationResult) -> Void)```, она сделает это сама. 
+#### 3.3 Setup Validator
+1. Create a validator object  ```validator = FieldValidator()```.
 
-Но как валидатор узнает, какие поля ему валидировать? Ответ достаточно прост. Для того, чтобы валидатор знал поля, для этого их нужно зарегистрировать. Как видно выше, мы сделали это с помощью функции ```registerFields()```. Давайте посмотрим на ее реализацию. 
- 
- ```
+2. Register fields for validating. 
+
+```swift
 private func registerFields() {
     register(field: validatableFieldOne, rules: [MinLenghtRule(min: Constants.validatableFieldOneMinLenght)])
     register(field: validatableFieldTwo, rules: [PhoneRule()])
@@ -132,26 +154,49 @@ private func registerFields() {
         ]
     )
 }
- ```
- 
-Как видно из кода, мы явно указываем, что поле такое-то нужно проверять по такому-то правилу. Просто, не так ли?
+```
 
-Следующий важный шаг. При открытии нашего экрана в полях уже могут быть какие-то данные. Они могут быть взяты из базы данных, с сервера или еще откуда-то. Их может и не быть. Но если они всё-таки есть, хорошо бы их отобразить сразу. Мы сделали это в функции ```setupInitialData()```.
- 
- ```
-private func setupInitialData() {
-    let models = interactor.getInitialDate()
-        
-    validatableFieldOne.setup(with: models[Constants.validatableFieldOneIndex])
-    validatableFieldTwo.setup(with: models[Constants.validatableFieldTwoIndex])
-    validatableFieldThree.setup(with: models[Constants.validatableFieldThreeIndex])
+Each field is accompanied by a set of rules. Leave ```rules``` parameter empty if the field doesn't need to be validated.
+
+3. Validate fields. 
+Validator has a function ```validator.validate(completion: completion)``` that goes through all the fields and validates them. To start the validation call this function. In our example we want to validate fields after user touches up inside button, so we place validate functions inside IBAction.
+
+#### 3.4 Optional settings
+In case of using scrollView, set ```scrollView.contentInset.bottom``` to button height + button's vertical insets: 
+
+```
+private func setupScrollView() {
+    scrollView.contentInset.bottom = button.frame.height + Constants.buttonYInsets
 }
  ```
  
-Осталось дело за малым. Подключить действие кнопки и сверстать UI. В демонстрационном проекте это, опять же, сделано через Xib. Смотри реализацию в файлах DemoFormViewController.swift и  DemoFormViewController.xib. 
+## Requirements
 
-![image](https://user-images.githubusercontent.com/80983073/183074879-b37e53f9-042a-4d69-8c0f-6a80a1578f42.png)
+- Swift 5.0 +
+- iOS 12.0 +
 
-Что имеем на текущий момент при запуске проекта? В принипе, то, что мы и задумывали изначально: 
-![image](https://user-images.githubusercontent.com/80983073/183074769-e629a54d-5b14-41ae-9be7-ca02cb37c509.png)
-![image](https://user-images.githubusercontent.com/80983073/183074812-c13311d3-09ed-4d36-b9d5-e831af7039de.png)
+## Installation
+
+FormController doesn't contain any external dependencies.
+
+### CocoaPods
+
+Will be added soon
+
+### Manual
+
+Download and drag files from Source folder into your Xcode project.
+
+### Swift Package Manager Install
+
+Swift Package Manager 
+
+```
+dependencies: [
+    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "0.0.1"))
+]
+```
+
+## License
+
+FormController is distributed under the [MIT License](https://github.com/MobileUpLLC/FormController/blob/main/LICENSE).
