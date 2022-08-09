@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FormController
 
 final class DemoValidatableView: UIView, ValidatableField {
     

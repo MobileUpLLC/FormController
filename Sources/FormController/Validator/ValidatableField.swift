@@ -9,18 +9,18 @@ import Foundation
 
 // MARK: - ValidatableFieldState
 
-enum ValidatableFieldState: Equatable {
+public enum ValidatableFieldState: Equatable {
     
     case success
     case error(String? = nil)
     case `default`
     
-    var isDefault: Bool { self == ValidatableFieldState.default }
+    public var isDefault: Bool { self == ValidatableFieldState.default }
 }
 
 // MARK: - ValidatableField
 
-protocol ValidatableField: AnyObject {
+public protocol ValidatableField: AnyObject {
     
     typealias ValueCallback = (String) -> Void
     

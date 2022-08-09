@@ -5,16 +5,16 @@
 //  Created by Petrovich on 08.11.2021.
 //
 
-class MinLenghtRule: Rule {
+open class MinLenghtRule: Rule {
     
-    var errorMessage: String?
-    let min: Int
+    open var errorMessage: String?
+    public let min: Int
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         return value.count >= min
     }
     
-    init(min: Int) {
+    public init(min: Int) {
         self.min = min
     }
 }

@@ -5,19 +5,19 @@
 //  Created by Petrovich on 08.11.2021.
 //
 
-class MaxValueRule: Rule {
+open class MaxValueRule: Rule {
     
-    var errorMessage: String?
-    let max: Int
+    open var errorMessage: String?
+    public let max: Int
     
-    func validate(value: String) -> Bool {
+    public func validate(value: String) -> Bool {
         if let intValue = Int(value) {
             return intValue <= max
         }
         return false
     }
     
-    init(max: Int) {
+    public init(max: Int) {
         self.max = max
     }
 }

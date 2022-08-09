@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import FormController
 
 final class DemoFormViewController: BaseFormViewController {
     
     private enum Constants {
         
-        static let scrollViewButtomInset: CGFloat = 86
         static let navigationBraTitle = "FormController"
         static let successMessage = "Success"
+        static let buttonYInsets: CGFloat = 32
         static let validatableFieldOneIndex = 0
         static let validatableFieldTwoIndex = 1
         static let validatableFieldThreeIndex = 2
@@ -62,7 +63,7 @@ final class DemoFormViewController: BaseFormViewController {
     }
     
     private func setupScrollView() {
-        scrollView.contentInset.bottom = Constants.scrollViewButtomInset
+        scrollView.contentInset.bottom = button.frame.height + Constants.buttonYInsets
     }
     
     private func registerFields() {
@@ -79,7 +80,7 @@ final class DemoFormViewController: BaseFormViewController {
     }
     
     private func setupInitialData() {
-        let models = interactor.getInitialDate()
+        let models = interactor.getInitialData()
         
         validatableFieldOne.setup(with: models[Constants.validatableFieldOneIndex])
         validatableFieldTwo.setup(with: models[Constants.validatableFieldTwoIndex])

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Rule
 
-protocol Rule {
+public protocol Rule {
     
     // MARK: - Public propertries
     

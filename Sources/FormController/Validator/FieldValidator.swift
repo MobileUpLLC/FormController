@@ -9,48 +9,53 @@ import Foundation
 
 // MARK: - ValidatableFieldResult
 
-struct ValidatableFieldResult {
+public struct ValidatableFieldResult {
     
     // MARK: - Public properties
     
-    weak var object: ValidatableField?
-    let errorMessage: String?
+    public weak var object: ValidatableField?
+    public let errorMessage: String?
 }
 
 // MARK: - FormValidationResult
 
-struct FormValidationResult {
+public struct FormValidationResult {
     
     // MARK: - Public properties
 
-    let isSuccess: Bool
-    let failedFields: [ValidatableFieldResult]
-    let successFields: [ValidatableFieldResult]
+    public let isSuccess: Bool
+    public let failedFields: [ValidatableFieldResult]
+    public let successFields: [ValidatableFieldResult]
 }
 
 // MARK: - FieldValidationResult
 
-struct FieldValidationResult {
+public struct FieldValidationResult {
     
     // MARK: - Public properties
 
-    let isSuccess: Bool
-    let firstFailedRule: Rule?
+    public let isSuccess: Bool
+    public let firstFailedRule: Rule?
 }
 
 // MARK: - ValidatableItem
 
-struct ValidatableItem {
+public struct ValidatableItem {
+    
+    private enum Constants {
+        
+        static let empty = ""
+    }
     
     // MARK: - Public properties
     
-    weak var field: ValidatableField?
-    let rules: [Rule]
+    public weak var field: ValidatableField?
+    public let rules: [Rule]
     
     // MARK: - Public methods
     
-    func validate() -> FieldValidationResult {
-        if let firstFailedRule = rules.first(where: { $0.validate(value: field?.value ?? "") == false }) {
+    public func validate() -> FieldValidationResult {
+        if let firstFailedRule = rules.first(where: { $0.validate(value: field?.value ?? Constants.empty) == false }) {
             return FieldValidationResult(isSuccess: false, firstFailedRule: firstFailedRule)
         } else {
             return FieldValidationResult(isSuccess: true, firstFailedRule: nil)
@@ -60,7 +65,7 @@ struct ValidatableItem {
 
 // MARK: - FieldValidator
 
-class FieldValidator {
+public class FieldValidator {
     
     // MARK: - Private properties
     
@@ -68,26 +73,26 @@ class FieldValidator {
         
     // MARK: - Public methods
     
-    func register(field: ValidatableField, rules: [Rule]) {
+    public func register(field: ValidatableField, rules: [Rule]) {
         validatableItems.append(ValidatableItem(field: field, rules: rules))
     }
     
-    func unregister(field: ValidatableField) {
+    public func unregister(field: ValidatableField) {
         if let fieldIndex = validatableItems.firstIndex(where: { $0.field === field }) {
             validatableItems.remove(at: fieldIndex)
         }
     }
     
-    func unregisterObjects() {
+    public func unregisterObjects() {
         validatableItems.removeAll()
     }
     
-    func validate(field: ValidatableField, rules: [Rule]) -> FieldValidationResult {
+    public func validate(field: ValidatableField, rules: [Rule]) -> FieldValidationResult {
         let validatableItem = ValidatableItem(field: field, rules: rules)
         return validatableItem.validate()
     }
     
-    func validate(completion: (FormValidationResult) -> Void) {
+    public func validate(completion: (FormValidationResult) -> Void) {
         var failedFields: [ValidatableFieldResult] = []
         var successFields: [ValidatableFieldResult] = []
         

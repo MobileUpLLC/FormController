@@ -5,6 +5,8 @@
 //  Created by Илья Чуб on 05.07.2022.
 //
 
+import FormController
+
 final class DemoRule: RegexRule {
     
     private enum Constants {
