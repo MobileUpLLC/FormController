@@ -8,16 +8,21 @@
 import UIKit
 import FormController
 
-final class DemoFormViewController: BaseFormViewController {
+final class DemoFormViewController: FormViewController {
     
     private enum Constants {
         
-        static let navigationBraTitle = "FormController"
+        static let demoModelFirstTitle = "The string must be more than 5 characters long"
+        static let demoModelSecondTitle = "This field should contain the phone number"
+        static let demoModelThirdTitle = """
+        This string must consist only of the letters 'a'
+        and have a length of less than five characters
+        """
+        static let demoModelFirstContent = "SPb"
+        static let demoModelSecondContent = "-1234567891"
+        static let navigationBarTitle = "FormController"
         static let successMessage = "Success"
         static let buttonYInsets: CGFloat = 32
-        static let validatableFieldOneIndex = 0
-        static let validatableFieldTwoIndex = 1
-        static let validatableFieldThreeIndex = 2
         static let validatableFieldOneMinLenght = 6
         static let validatableFieldThreeMinLenght = 1
         static let validatableFieldThreeMaxLenght = 4
@@ -27,11 +32,9 @@ final class DemoFormViewController: BaseFormViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var validatableFieldOne: DemoValidatableView!
-    @IBOutlet weak var validatableFieldTwo: DemoValidatableView!
-    @IBOutlet weak var validatableFieldThree: DemoValidatableView!
+    @IBOutlet private weak var validatableFieldTwo: DemoValidatableView!
+    @IBOutlet private weak var validatableFieldThree: DemoValidatableView!
     @IBOutlet private weak var button: UIButton!
-    
-    private let interactor = DemoInteractor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +42,7 @@ final class DemoFormViewController: BaseFormViewController {
         setupNavigationBar()
         setupScrollView()
         registerFields()
-        setupInitialData()
-    }
-    
-    static func initiate() -> Self {
-        return Self(nibName: String(describing: self), bundle: nil)
+        setupFields()
     }
     
     @IBAction private func didTapScrollView() {
@@ -59,7 +58,7 @@ final class DemoFormViewController: BaseFormViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = Constants.navigationBraTitle
+        navigationItem.title = Constants.navigationBarTitle
     }
     
     private func setupScrollView() {
@@ -79,11 +78,27 @@ final class DemoFormViewController: BaseFormViewController {
         )
     }
     
-    private func setupInitialData() {
-        let models = interactor.getInitialData()
-        
-        validatableFieldOne.setup(with: models[Constants.validatableFieldOneIndex])
-        validatableFieldTwo.setup(with: models[Constants.validatableFieldTwoIndex])
-        validatableFieldThree.setup(with: models[Constants.validatableFieldThreeIndex])
+    private func setupFields() {
+        validatableFieldOne.setup(
+            with: .init(
+                title: Constants.demoModelFirstTitle,
+                content: Constants.demoModelFirstContent,
+                placeholder: nil
+            )
+        )
+        validatableFieldTwo.setup(
+            with: .init(
+                title: Constants.demoModelSecondTitle,
+                content: Constants.demoModelSecondContent,
+                placeholder: nil
+            )
+        )
+        validatableFieldThree.setup(
+            with: .init(
+                title: Constants.demoModelThirdTitle,
+                content: nil,
+                placeholder: nil
+            )
+        )
     }
 }
