@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoFormViewController" customModule="FormController" customModuleProvider="target">
             <connections>
-                <outlet property="button" destination="nzl-aq-XHZ" id="Vd3-Ew-Bhm"/>
+                <outlet property="doneButton" destination="nzl-aq-XHZ" id="Vd3-Ew-Bhm"/>
                 <outlet property="scrollView" destination="8Ws-P3-Q4w" id="tN0-Qx-IG3"/>
                 <outlet property="validatableFieldOne" destination="Zv6-db-BmV" id="sNb-bx-4J3"/>
                 <outlet property="validatableFieldThree" destination="L2k-1J-tC9" id="Hfq-Bu-zan"/>
@@ -25,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ws-P3-Q4w">
-                    <rect key="frame" x="0.0" y="52" width="414" height="810"/>
+                    <rect key="frame" x="0.0" y="8" width="414" height="888"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5H9-c6-yDo">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="307"/>
@@ -62,7 +60,7 @@
                     </connections>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzl-aq-XHZ">
-                    <rect key="frame" x="16" y="792" width="382" height="54"/>
+                    <rect key="frame" x="16" y="826" width="382" height="54"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="54" id="Hq6-Me-hOQ"/>
@@ -74,7 +72,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="didTapButton" destination="-1" eventType="touchUpInside" id="FKL-73-lmn"/>
+                        <action selector="didTapDoneButton" destination="-1" eventType="touchUpInside" id="FKL-73-lmn"/>
                     </connections>
                 </button>
             </subviews>
@@ -99,7 +97,7 @@
     </objects>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

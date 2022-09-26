@@ -34,7 +34,7 @@ final class DemoFormViewController: FormViewController {
     @IBOutlet private weak var validatableFieldOne: DemoValidatableView!
     @IBOutlet private weak var validatableFieldTwo: DemoValidatableView!
     @IBOutlet private weak var validatableFieldThree: DemoValidatableView!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,24 +45,12 @@ final class DemoFormViewController: FormViewController {
         setupFields()
     }
     
-    @IBAction private func didTapScrollView() {
-        view.endEditing(true)
-    }
-    
-    @IBAction private func didTapButton() {
-        validate { result in
-            if result.isSuccess {
-                print(Constants.successMessage)
-            }
-        }
-    }
-    
     private func setupNavigationBar() {
         navigationItem.title = Constants.navigationBarTitle
     }
     
     private func setupScrollView() {
-        scrollView.contentInset.bottom = button.frame.height + Constants.buttonYInsets
+        scrollView.contentInset.bottom = doneButton.frame.height + Constants.buttonYInsets
     }
     
     private func registerFields() {
@@ -100,5 +88,17 @@ final class DemoFormViewController: FormViewController {
                 placeholder: nil
             )
         )
+    }
+    
+    @IBAction private func didTapScrollView() {
+        view.endEditing(true)
+    }
+    
+    @IBAction private func didTapDoneButton() {
+        validate { result in
+            if result.isSuccess {
+                print(Constants.successMessage)
+            }
+        }
     }
 }

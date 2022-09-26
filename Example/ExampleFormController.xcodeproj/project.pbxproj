@@ -119,10 +119,10 @@
 		D3BEDCF328743050004CA677 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E5ABEF3528E1F42400022C9C /* Extensions */,
 				D31CF536287434D500F1E757 /* DemoViews */,
 				D31CF53B287440A400F1E757 /* DemoViewModels */,
 				D31CF5402874440400F1E757 /* DemoFormViewController */,
-				E5ABEF3328E1F20200022C9C /* UIViewController+Ext.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -150,6 +150,14 @@
 				D3BEDCFC28743050004CA677 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5ABEF3528E1F42400022C9C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABEF3328E1F20200022C9C /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
