@@ -186,7 +186,7 @@ FormController doesn't contain any external dependencies.
 2. Add the following to Podfile 
 
 ```
-pod 'FormController', :git => 'https://github.com/MobileUpLLC/FormController', :tag => '1.0.0'
+pod 'FormController', :git => 'https://github.com/MobileUpLLC/FormController', :tag => '0.1.0'
 ```
 
 3. Make ```pod install```
@@ -201,7 +201,7 @@ Swift Package Manager
 
 ```
 dependencies: [
-    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/MobileUpLLC/FormController", .upToNextMajor(from: "0.1.0"))
 ]
 ```
 

@@ -136,7 +136,6 @@ open class FormViewController: UIViewController {
     // MARK: - Private methods
     
     @objc private func notificationKeyboard(notification: Notification) {
-        
         guard
             aboveKeyboardView != nil,
             let userInfo = notification.userInfo,

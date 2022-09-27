@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "FormController"
-  spec.version      = "0.0.1"
+  spec.version      = "0.1.0"
   spec.summary      = "Controller for manage and validate screen with forms"
   spec.description  = "Manage and validate your interactive forms only with controller and view"
   spec.homepage     = "https://github.com/MobileUpLLC/FormController"
