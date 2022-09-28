@@ -16,7 +16,7 @@
 		D31CF5472874554400F1E757 /* DemoFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31CF5412874441D00F1E757 /* DemoFormViewController.xib */; };
 		D31CF5482874554800F1E757 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3BEDCF528743050004CA677 /* LaunchScreen.storyboard */; };
 		D3BEDCFE28743050004CA677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BEDCF628743050004CA677 /* AppDelegate.swift */; };
-		D3E6C1E22874CF0000D42B5F /* DemoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E6C1E12874CF0000D42B5F /* DemoInteractor.swift */; };
+		E5ABEF3428E1F20200022C9C /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ABEF3328E1F20200022C9C /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		D3BEDCF628743050004CA677 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3BEDCFA28743050004CA677 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3BEDCFC28743050004CA677 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D3E6C1E12874CF0000D42B5F /* DemoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoInteractor.swift; sourceTree = "<group>"; };
+		E5ABEF3328E1F20200022C9C /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 		D3BEDCF228743050004CA677 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D3E6C1E02874CEF300D42B5F /* DemoInteractors */,
+				D3BEDCF428743050004CA677 /* Application */,
 				74F8EBBC289FDD26003C20CC /* DemoRules */,
 				D3BEDCF328743050004CA677 /* UI */,
 				D3BEDCF928743050004CA677 /* Config */,
@@ -119,10 +119,10 @@
 		D3BEDCF328743050004CA677 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E5ABEF3528E1F42400022C9C /* Extensions */,
 				D31CF536287434D500F1E757 /* DemoViews */,
 				D31CF53B287440A400F1E757 /* DemoViewModels */,
 				D31CF5402874440400F1E757 /* DemoFormViewController */,
-				D3BEDCF428743050004CA677 /* Application */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -152,12 +152,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D3E6C1E02874CEF300D42B5F /* DemoInteractors */ = {
+		E5ABEF3528E1F42400022C9C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D3E6C1E12874CF0000D42B5F /* DemoInteractor.swift */,
+				E5ABEF3328E1F20200022C9C /* UIViewController+Ext.swift */,
 			);
-			path = DemoInteractors;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F8EBB8289FDB00003C20CC /* DemoRule.swift in Sources */,
-				D3E6C1E22874CF0000D42B5F /* DemoInteractor.swift in Sources */,
 				D31CF53F287443FE00F1E757 /* DemoFormViewController.swift in Sources */,
+				E5ABEF3428E1F20200022C9C /* UIViewController+Ext.swift in Sources */,
 				D31CF53D287440CA00F1E757 /* DemoValidatableViewModel.swift in Sources */,
 				D3BEDCFE28743050004CA677 /* AppDelegate.swift in Sources */,
 				742934AF289D2BBD0002191E /* DemoValidatableView.swift in Sources */,
@@ -447,8 +447,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MobileUpLLC/FormController";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

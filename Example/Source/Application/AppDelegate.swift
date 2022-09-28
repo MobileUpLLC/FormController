@@ -10,7 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    var window: UIWindow?
     
     func application(
         _ application: UIApplication,
@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = DemoFormViewController.initiate()
         let navigationController = UINavigationController(rootViewController: controller)
         
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
         return true
     }
