@@ -1,5 +1,5 @@
 //
-//  BaseFormViewController.swift
+//  FormViewController.swift
 //  FormController
 //
 //  Created by Petrovich on 08.11.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - BaseFormViewController
+// MARK: - FormViewController
 
 open class FormViewController: UIViewController {
 
