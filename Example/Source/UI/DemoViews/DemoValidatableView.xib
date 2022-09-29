@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoValidatableView" customModule="FormController" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="k8c-2h-gBy" id="7aC-EF-McF"/>
+                <outlet property="textField" destination="Sd9-8F-r1C" id="C33-cC-f3x"/>
+                <outlet property="titleLabel" destination="ezp-Ki-AS6" id="bGl-8M-Ox9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezp-Ki-AS6">
+                    <rect key="frame" x="16" y="8" width="59.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sd9-8F-r1C">
+                    <rect key="frame" x="16" y="32" width="382" height="89"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ErrorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8c-2h-gBy">
+                    <rect key="frame" x="16" y="129" width="63" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="k8c-2h-gBy" secondAttribute="bottom" constant="8" id="3VO-pH-lrH"/>
+                <constraint firstItem="ezp-Ki-AS6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="7QN-LT-nDf"/>
+                <constraint firstItem="Sd9-8F-r1C" firstAttribute="top" secondItem="ezp-Ki-AS6" secondAttribute="bottom" constant="8" id="CwC-Lr-ZJQ"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ezp-Ki-AS6" secondAttribute="trailing" constant="16" id="GH8-vs-vOF"/>
+                <constraint firstItem="k8c-2h-gBy" firstAttribute="top" secondItem="Sd9-8F-r1C" secondAttribute="bottom" constant="8" id="J13-jQ-Rba"/>
+                <constraint firstItem="k8c-2h-gBy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Ugf-rn-xfx"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k8c-2h-gBy" secondAttribute="trailing" constant="16" id="XmO-v5-ZVc"/>
+                <constraint firstAttribute="trailing" secondItem="Sd9-8F-r1C" secondAttribute="trailing" constant="16" id="fV1-N1-JAO"/>
+                <constraint firstItem="ezp-Ki-AS6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="rhU-kh-iyx"/>
+                <constraint firstItem="Sd9-8F-r1C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="wJe-zb-36Z"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="142.02898550724638" y="-166.40625"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
