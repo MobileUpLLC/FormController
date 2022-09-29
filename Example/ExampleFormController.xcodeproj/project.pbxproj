@@ -448,7 +448,7 @@
 			repositoryURL = "https://github.com/MobileUpLLC/FormController";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.0;
+				version = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
